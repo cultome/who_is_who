@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'who_is_who'
+require 'open-uri'
 
 RSpec.configure do |config|
   config.example_status_persistence_file_path = '.rspec_status'
