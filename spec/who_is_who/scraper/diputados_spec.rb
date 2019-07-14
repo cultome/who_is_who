@@ -3,18 +3,14 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
 
   it 'get the diputados name and ID' do
     expect(scraper)
-      .to receive(:fetch)
-      .with(WhoIsWho::Scraper::Diputados::LIST_URL)
-      .and_return(url_content('lista_diputados'))
+      .to receive(:parse).and_return(url_content('lista_diputados'))
     expect(scraper.ids.size).to eq 499
   end
 
   context 'get the details for a diputado' do
     it 'diputado_1' do
       expect(scraper)
-        .to receive(:fetch)
-        .with(WhoIsWho::Scraper::Diputados::DETAILS_URL.gsub('<id>', '111'))
-        .and_return(url_content('detalles_diputado_1'))
+        .to receive(:parse).and_return(url_content('detalles_diputado_1'))
 
       response = {
         'Administración Pública Local' => [
@@ -30,9 +26,7 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
 
     it 'diputado_2' do
       expect(scraper)
-        .to receive(:fetch)
-        .with(WhoIsWho::Scraper::Diputados::DETAILS_URL.gsub('<id>', '222'))
-        .and_return(url_content('detalles_diputado_2'))
+        .to receive(:parse).and_return(url_content('detalles_diputado_2'))
 
       response = {
         'Asociaciones a las que Pertenece' => [
@@ -60,9 +54,7 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
 
     it 'diputado_3' do
       expect(scraper)
-        .to receive(:fetch)
-        .with(WhoIsWho::Scraper::Diputados::DETAILS_URL.gsub('<id>', '333'))
-        .and_return(url_content('detalles_diputado_3'))
+        .to receive(:parse).and_return(url_content('detalles_diputado_3'))
 
       response = {
         'Administración Pública Local' => [
@@ -90,9 +82,7 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
 
     it 'diputado_5' do
       expect(scraper)
-        .to receive(:fetch)
-        .with(WhoIsWho::Scraper::Diputados::DETAILS_URL.gsub('<id>', '555'))
-        .and_return(url_content('detalles_diputado_5'))
+        .to receive(:parse).and_return(url_content('detalles_diputado_5'))
 
       response = {
         'Administración Pública Local' => [
@@ -121,6 +111,14 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
           { 'Cargo' => 'Coordinador de Giras de Campaña del Senador por Oaxaca de la coalición Movimiento Progresista', 'Partido' => 'MORENA', 'Periodo' => '2012' }
         ]
       }
+      expect(scraper.details(555)).to eq response
+    end
+
+    it 'diputado_12' do
+      expect(scraper)
+        .to receive(:parse).and_return(url_content('detalles_diputado_12'))
+
+      response = {}
       expect(scraper.details(555)).to eq response
     end
   end

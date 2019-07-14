@@ -3,6 +3,12 @@ module WhoIsWho
     module Refinement
       module Text
         refine String do
+          def clean
+            cleaned = strip
+            return '' if cleaned == '.'
+            cleaned
+          end
+
           def titlecase
             self.downcase.split(' ').map do |word|
               if %{a o el la en las los de que}.include?(word)

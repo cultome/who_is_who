@@ -44,7 +44,7 @@ module WhoIsWho
               acc[current_category].append(current_record)
             end
 
-            current_record[col_name(current_category, current_col)] = td.text.strip unless td.text.strip.empty?
+            current_record[col_name(current_category, current_col)] = td.text.clean unless td.text.clean.empty?
           end
         end
       end
@@ -85,6 +85,12 @@ module WhoIsWho
           case col
           when 1 then 'Nivel de estudios'
           when 2 then 'Titulo'
+          when 3 then 'Periodo'
+          end
+        when 'Actividad Empresarial'
+          case col
+          when 1 then 'Posicion'
+          when 2 then 'Empresa'
           when 3 then 'Periodo'
           end
         when 'Iniciativa Privada'

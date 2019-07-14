@@ -11,5 +11,5 @@ RSpec.configure do |config|
 end
 
 def url_content(name)
-  open("spec/data/#{name}.html")
+  Nokogiri::HTML(File.read("spec/data/#{name}.html"), nil, 'UTF-8')
 end

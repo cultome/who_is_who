@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'thor'
+require 'json'
+require 'who_is_who'
+
+class WhoIsWhoCLI < Thor
+  desc 'scrap_diputados', 'Scraper diputados'
+  option :output, type: :string
+  def scrap_diputados
+    scraper = WhoIsWho::Scraper::Diputados.new
+
+    open(options[:output], 'w') do |file|
+      scraper.ids.each do |id|
+        details = scraper.details(id)
+        puts ">>>>>>>>>>>>> #{id} <<<<<<<<<<<<<<<"
+        puts details.to_json
+
+        file.puts details.to_json
+      end
+    end
+  end
+end
+
+WhoIsWhoCLI.start(ARGV)
