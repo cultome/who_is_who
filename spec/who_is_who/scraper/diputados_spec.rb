@@ -1,7 +1,7 @@
 RSpec.describe WhoIsWho::Scraper::Diputados do
   let(:scraper) { WhoIsWho::Scraper::Diputados.new }
 
-  it 'get the diputados name and ID' do
+  it 'get the diputados IDs' do
     expect(scraper)
       .to receive(:parse).and_return(url_content('lista_diputados'))
     expect(scraper.ids.size).to eq 499
@@ -19,7 +19,15 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
         ],
         'Escolaridad' => [
           { 'Nivel de estudios' => 'Secundaria', 'Periodo' => '2001-2003', 'Titulo' => 'Operador en Microcomputadoras' }
-        ]
+        ],
+        "Nombre" => "Dip. Pedro Daniel Abasolo Sánchez",
+        "Circunscripción" => 5,
+        "Correo electrónico" => "pedro.abasolo@diputados.gob.mx",
+        "Curul" => "H-275",
+        "Entidad" => "México",
+        "Onomástico" => "3-febrero",
+        "Suplente" => "Carlos Alejandro Mendoza Álvarez",
+        "Tipo de elección" => "Representación proporcional",
       }
       expect(scraper.details(111)).to eq response
     end
@@ -47,7 +55,15 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
         'Publicaciones' => [
           { 'Fecha' => '2018', 'Medio' => 'Revista', 'Titulo' => 'Pensamiento y Reflexión' },
           { 'Fecha' => '2018', 'Medio' => 'Revista', 'Titulo' => 'Ejes diacrónicos y derivas conceptuales de la Pobreza' }
-        ]
+        ],
+        "Correo electrónico" => "karla.almazan@diputados.gob.mx",
+        "Curul" => "P-507",
+        "Distrito" => 38,
+        "Entidad" => "México",
+        "Nombre" => "Dip. Karla Yuritzi Almazán Burgos",
+        "Onomástico" => "27-agosto",
+        "Suplente" => "María Imelda Agustina Yescas Ruíz",
+        "Tipo de elección" => "Mayoría Relativa",
       }
       expect(scraper.details(222)).to eq response
     end
@@ -76,6 +92,14 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
           { 'Cargo' => 'Consejera Estatal', 'Partido' => 'Izquierda', 'Periodo' => '2012-2015' },
           { 'Cargo' => 'Comisión MORENA', 'Partido' => 'MORENA', 'Periodo' => '2016-2017' }
         ],
+        "Correo electrónico" => "adriana.espinosa@diputados.gob.mx",
+        "Curul" => "E-142",
+        "Distrito" => 9,
+        "Entidad" => "Ciudad de México",
+        "Nombre" => "Dip. Adriana María Guadalupe Espinosa de los Monteros García",
+        "Onomástico" => "11-diciembre",
+        "Suplente" => "Mariela Santos Rojo",
+        "Tipo de elección" => "Mayoría Relativa",
       }
       expect(scraper.details(333)).to eq response
     end
@@ -109,7 +133,15 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
         ],
         'Trayectoria Política' => [
           { 'Cargo' => 'Coordinador de Giras de Campaña del Senador por Oaxaca de la coalición Movimiento Progresista', 'Partido' => 'MORENA', 'Periodo' => '2012' }
-        ]
+        ],
+        "Correo electrónico" => "irineo.molina@diputados.gob.mx",
+        "Curul" => "J-349",
+        "Distrito" => 1,
+        "Entidad" => "Oaxaca",
+        "Nombre" => "Dip. Irineo Molina Espinoza",
+        "Onomástico" => "13-junio",
+        "Suplente" => "Jorge Luis Estrada Rodríguez",
+        "Tipo de elección" => "Mayoría Relativa",
       }
       expect(scraper.details(555)).to eq response
     end
@@ -118,7 +150,17 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
       expect(scraper)
         .to receive(:parse).and_return(url_content('detalles_diputado_12'))
 
-      response = {}
+      response = {
+        "Correo electrónico" => "ruth.garcia@diputados.gob.mx",
+        "Curul" => "G-240",
+        "Distrito" => 1,
+        "Entidad" => "Baja California Sur",
+        "Nombre" => "Dip. Ana Ruth García Grande",
+        "Onomástico" => "30-mayo",
+        "Suplente" => "Yolanda Jiménez Espinoza",
+        "Tipo de elección" => "Mayoría Relativa",
+        "Trayectoria Política" => [{}],
+      }
       expect(scraper.details(555)).to eq response
     end
   end
