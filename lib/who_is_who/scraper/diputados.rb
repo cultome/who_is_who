@@ -18,13 +18,75 @@ module WhoIsWho
           .sort
       end
 
-      def details(id)
+      def personal_information(id)
         doc = parse(DETAILS_URL, id: id)
 
         profile = parse_profile(doc)
         career = parse_career(doc)
 
         {}.merge(profile, career)
+      end
+
+      def work_information(id)
+        doc = parse(DETAILS_URL, id: id)
+
+        commissions = parse_commissions(doc)
+        initiatives = parse_initiatives(doc)
+        require "pry";binding.pry
+        propositions = parse_propositions(doc)
+        assistance = parse_assistance(doc)
+        votations = parse_votations(doc)
+
+        {
+          commissions: commissions,
+          initiatives: initiatives,
+          propositions: propositions,
+          assistance: assistance,
+          votations: votations,
+        }
+      end
+
+      def parse_votations(doc)
+      end
+
+      def parse_assistance(doc)
+      end
+
+      def parse_propositions(doc)
+      end
+
+      def parse_initiatives(doc)
+        doc.css("div.iniciativas td.Estilo69").each_slice(4).map do |(text, turn_to, sinopsis, tramite)|
+          initiative = text.children.first.children.last.text.clean
+
+          type = text.css("span.Estilo71").last.children.first.text.gsub(": ", "")
+          type_value = text.css("span.Estilo71").last.children.last.text
+
+          date = turn_to.children.first.text.split(":").last.strip
+          turn_to_comm = turn_to.css("b").last.text
+          resume = sinopsis.children.first.children.map(&:text).map(&:strip).delete_if(&:empty?).join("\n")
+
+          status = tramite.children.first.children.first.text
+          status_date = tramite.children.first.children[-2].text.strip
+
+          {
+            "Iniciativa" => initiative,
+            "Tipo de Iniciativa" => type,
+            "Fecha de presentacion" => date,
+            "Turnado a comision" => turn_to_comm,
+            "Sinopsis" => resume,
+            "Tramite en el pleno" => status,
+            "Fecha de tramite" => status_date,
+          }
+        end
+      end
+
+      def parse_commissions(doc)
+        doc.css("a.linkNegroSin").map do |link|
+          link["href"] =~ /comt=([\d]+)$/
+
+          { "Nombre" => link.text.strip, "id" => $1.to_i }
+        end
       end
 
       def parse_profile(doc)

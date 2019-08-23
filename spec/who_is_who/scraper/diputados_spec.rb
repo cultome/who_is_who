@@ -7,7 +7,7 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
     expect(scraper.ids.size).to eq 499
   end
 
-  context 'get the details for a diputado' do
+  context 'get the personal details for a diputado' do
     it 'diputado_1' do
       expect(scraper)
         .to receive(:parse).and_return(url_content('detalles_diputado_1'))
@@ -29,7 +29,7 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
         "Suplente" => "Carlos Alejandro Mendoza Álvarez",
         "Tipo de elección" => "Representación proporcional",
       }
-      expect(scraper.details(111)).to eq response
+      expect(scraper.personal_information(111)).to eq response
     end
 
     it 'diputado_2' do
@@ -65,7 +65,7 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
         "Suplente" => "María Imelda Agustina Yescas Ruíz",
         "Tipo de elección" => "Mayoría Relativa",
       }
-      expect(scraper.details(222)).to eq response
+      expect(scraper.personal_information(222)).to eq response
     end
 
     it 'diputado_3' do
@@ -101,7 +101,7 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
         "Suplente" => "Mariela Santos Rojo",
         "Tipo de elección" => "Mayoría Relativa",
       }
-      expect(scraper.details(333)).to eq response
+      expect(scraper.personal_information(333)).to eq response
     end
 
     it 'diputado_5' do
@@ -143,7 +143,7 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
         "Suplente" => "Jorge Luis Estrada Rodríguez",
         "Tipo de elección" => "Mayoría Relativa",
       }
-      expect(scraper.details(555)).to eq response
+      expect(scraper.personal_information(555)).to eq response
     end
 
     it 'diputado_12' do
@@ -161,7 +161,19 @@ RSpec.describe WhoIsWho::Scraper::Diputados do
         "Tipo de elección" => "Mayoría Relativa",
         "Trayectoria Política" => [{}],
       }
-      expect(scraper.details(555)).to eq response
+      expect(scraper.personal_information(555)).to eq response
+    end
+  end
+
+  context 'get the work details for a diputado' do
+    it "diputado_1" do
+      expect(scraper)
+        .to receive(:parse).and_return(url_content('detalles_diputado_1'))
+
+      response = {
+      }
+
+      expect(scraper.work_information(211)).to eq response
     end
   end
 end

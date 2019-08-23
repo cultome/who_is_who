@@ -4,7 +4,7 @@ module WhoIsWho
       module Text
         refine String do
           def clean
-            cleaned = strip
+            cleaned = gsub("\n", "").gsub("\t", "").gsub(" ", "").strip
             return '' if cleaned == '.'
             cleaned
           end
