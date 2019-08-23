@@ -32,10 +32,9 @@ module WhoIsWho
 
         commissions = parse_commissions(doc)
         initiatives = parse_initiatives(doc)
-        require "pry";binding.pry
         propositions = parse_propositions(doc)
-        assistance = parse_assistance(doc)
         votations = parse_votations(doc)
+        assistance = parse_assistance(doc)
 
         {
           commissions: commissions,
@@ -47,12 +46,42 @@ module WhoIsWho
       end
 
       def parse_votations(doc)
+        # TODO: implement
+        {}
       end
 
       def parse_assistance(doc)
+        # TODO: implement
+        {}
       end
 
       def parse_propositions(doc)
+        doc.css("div.comision td.Estilo69").each_slice(5).map do |(text, turn_to, proposed, approved, tramite)|
+          initiative = text.children.first.children.last.text.clean
+
+          type = text.css("span.Estilo71").last.children.first.text.gsub(": ", "")
+          #type_value = text.css("span.Estilo71").last.children.last.text
+
+          date = turn_to.children.first.text.split(":").last.clean
+          turn_to_comm = turn_to.css("b").last.text
+
+          proposed_text = proposed.children.first.children.map(&:text).map(&:clean).delete_if(&:empty?).join("\n")
+          approved_text = approved.children.first.children.map(&:text).map(&:clean).delete_if(&:empty?).join("\n")
+
+          status = tramite.children.first.children.first.text
+          status_date = tramite.children.first.children[-2].text.clean
+
+          {
+            "Proposicion" => initiative,
+            "Tipo de proposicion" => type,
+            "Fecha de presentacion" => date,
+            "Turnado a comision" => turn_to_comm,
+            "Resolutivos del proponente" => proposed_text,
+            "Resolutivos aprobados" => approved_text,
+            "Tramite en el pleno" => status,
+            "Fecha de tramite" => status_date,
+          }
+        end
       end
 
       def parse_initiatives(doc)
@@ -60,14 +89,14 @@ module WhoIsWho
           initiative = text.children.first.children.last.text.clean
 
           type = text.css("span.Estilo71").last.children.first.text.gsub(": ", "")
-          type_value = text.css("span.Estilo71").last.children.last.text
+          #type_value = text.css("span.Estilo71").last.children.last.text
 
-          date = turn_to.children.first.text.split(":").last.strip
+          date = turn_to.children.first.text.split(":").last.clean
           turn_to_comm = turn_to.css("b").last.text
-          resume = sinopsis.children.first.children.map(&:text).map(&:strip).delete_if(&:empty?).join("\n")
+          resume = sinopsis.children.first.children.map(&:text).map(&:clean).delete_if(&:empty?).join("\n")
 
           status = tramite.children.first.children.first.text
-          status_date = tramite.children.first.children[-2].text.strip
+          status_date = tramite.children.first.children[-2].text.clean
 
           {
             "Iniciativa" => initiative,
@@ -85,21 +114,21 @@ module WhoIsWho
         doc.css("a.linkNegroSin").map do |link|
           link["href"] =~ /comt=([\d]+)$/
 
-          { "Nombre" => link.text.strip, "id" => $1.to_i }
+          { "Nombre" => link.text.clean, "id" => $1.to_i }
         end
       end
 
       def parse_profile(doc)
         name = doc.css("td.textocurrienc strong").first.text
-        doc.css("td.textocurri").map { |n| n.text.strip }.each_slice(2).each_with_object({"Nombre" => name}) do |(title, value), acc|
+        doc.css("td.textocurri").map { |n| n.text.clean }.each_slice(2).each_with_object({"Nombre" => name}) do |(title, value), acc|
           key = title.gsub(":", "")
 
           if key == "Entidad"
-            entity, circuns, curul = value.gsub(/[\n ]/, "").split("|").map(&:strip)
+            entity, circuns, curul = value.gsub(/[\n ]/, "").split("|").map(&:clean)
 
             acc[key] = entity
             acc["Curul"] = curul
-            circ_key, circ_value = circuns.split(":").map(&:strip)
+            circ_key, circ_value = circuns.split(":").map(&:clean)
             acc[circ_key] = circ_value.to_i
           else
             acc[key] = value
