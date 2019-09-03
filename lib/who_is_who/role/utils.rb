@@ -1,8 +1,5 @@
-require 'nokogiri'
-require 'open-uri'
-
 module WhoIsWho
-  module Scraper
+  module Role
     module Utils
       def parse(url_template, params={})
         url = build_url(url_template, params)

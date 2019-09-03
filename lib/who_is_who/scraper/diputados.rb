@@ -1,7 +1,7 @@
 module WhoIsWho
   module Scraper
     class Diputados
-      include WhoIsWho::Scraper::Utils
+      include WhoIsWho::Role::Utils
 
       using WhoIsWho::Scraper::Refinement::Text
 
@@ -16,6 +16,13 @@ module WhoIsWho
           .map { |href| href.gsub("curricula.php?dipt=", "") }
           .map(&:to_i)
           .sort
+      end
+
+      def details(id)
+        {
+          personal: personal_information(id),
+          work: work_information(id)
+        }
       end
 
       def personal_information(id)

@@ -1,17 +1,18 @@
 #!/usr/bin/env ruby
 
-require 'bundler/setup'
-require 'thor'
-require 'json'
-require 'who_is_who'
+require "bundler/setup"
+require "thor"
+require "json"
+require "digest"
+require "who_is_who"
 
 class WhoIsWhoCLI < Thor
-  desc 'scrap_diputados', 'Scraper diputados'
+  desc "scrap_diputados", "Scraper diputados"
   option :output, type: :string
   def scrap_diputados
     scraper = WhoIsWho::Scraper::Diputados.new
 
-    open(options[:output], 'w') do |file|
+    open(options[:output], "w") do |file|
       scraper.ids.each do |id|
         details = scraper.details(id)
         puts ">>>>>>>>>>>>> #{id} <<<<<<<<<<<<<<<"
@@ -21,6 +22,171 @@ class WhoIsWhoCLI < Thor
       end
     end
   end
+
+  desc "preload_diputados FILE", "Prepaer file to load the DB"
+  option :output, type: :string
+  def preload_diputados(file)
+    open(options[:output], "w") do |output|
+      open(file).each do |line|
+        record = JSON.parse line
+        personal = record["personal"]
+        work = record["work"]
+
+        person, person_query = create_node "Person", id: to_hash("Person", personal["Nombre"]), name: personal["Nombre"]
+        output.puts person_query
+
+        state, state_query = create_node "State", id: to_hash("State", personal["Entidad"]), name: personal["Entidad"]
+        output.puts state_query if check_and_update(state)
+
+        link_id, link_query = link person, state, "REPRESENTS", election_type: personal.fetch("Tipo de elección", ""), district: personal.fetch("Distrito", "")
+        output.puts link_query if check_and_update(link_id)
+
+        personal.fetch("Trayectoria Política", []).each do |rec|
+          node, query = create_node "Job", id: to_hash("Job", rec.fetch("Cargo", "No especificada")), title: rec.fetch("Cargo", "No especificada")
+          output.puts query if check_and_update(node)
+
+          node2, query2 = create_node "PoliticalParty", id: to_hash("PoliticalParty", rec.fetch("Partido", "No especificada")), name: rec.fetch("Partido", "No especificada")
+          output.puts query2 if check_and_update(node2)
+
+          link_id, link_query = link person, node, "WORKED_AS", period: rec.fetch("Periodo", ""), party: rec.fetch("Partido", "")
+          output.puts link_query if check_and_update(link_id)
+
+          link_id2, link_query2 = link person, node2, "AFILLIATED_TO"
+          output.puts link_query2 if check_and_update(link_id2)
+        end
+
+        personal.fetch("Cargos de Elección Popular", []).each do |rec|
+          node, query = create_node "Job", id: to_hash("Job", rec.fetch("Cargo")), title: rec.fetch("Cargo", "")
+          output.puts query if check_and_update(node)
+
+          node2, query2 = create_node "PoliticalParty", id: to_hash("PoliticalParty", rec.fetch("Partido", "No especificada")), name: rec.fetch("Partido", "No especificada")
+          output.puts query2 if check_and_update(node2)
+
+          link_id, link_query = link person, node, "WORKED_AS", period: rec.fetch("Periodo", ""), party: rec.fetch("Partido", "")
+          output.puts link_query if check_and_update(link_id)
+
+          link_id2, link_query2 = link person, node2, "AFILLIATED_TO"
+          output.puts link_query2 if check_and_update(link_id2)
+        end
+
+        personal.fetch("Experiencia Legislativa", []).each do |rec|
+          node, query = create_node "Job", id: to_hash("Job", rec.fetch("Cargo")), title: rec.fetch("Cargo", "")
+          output.puts query if check_and_update(node)
+
+          link_id, link_query = link person, node, "WORKED_AS", period: rec.fetch("Periodo", ""), legislatura: rec.fetch("Legislatura", "")
+          output.puts link_query if check_and_update(link_id)
+        end
+
+        personal.fetch("Cargos en Legislaturas Locales o Federales", []).each do |rec|
+          node, query = create_node "Job", id: to_hash("Job", rec.fetch("Cargo")), title: rec.fetch("Cargo", "")
+          output.puts query if check_and_update(node)
+
+          link_id, link_query = link person, node, "WORKED_AS", period: rec.fetch("Periodo", ""), legislatura: rec.fetch("Legislatura", "")
+          output.puts link_query if check_and_update(link_id)
+        end
+
+        personal.fetch("Administración Pública Federal", []).each do |rec|
+          node, query = create_node "GovAgency", id: to_hash("GovAgency", rec.fetch("Lugar", "No especificada")), name: rec.fetch("Lugar", "No especificada")
+          output.puts query if check_and_update(node)
+
+          link_id, link_query = link person, node, "SERVED_IN", period: rec.fetch("Periodo", ""), job: rec.fetch("Puesto", "")
+          output.puts link_query if check_and_update(link_id)
+        end
+
+        personal.fetch("Administración Pública Local", []).each do |rec|
+          node, query = create_node "GovAgency", id: to_hash("GovAgency", rec.fetch("Lugar", "No especificada")), name: rec.fetch("Lugar", "No especificada")
+          output.puts query if check_and_update(node)
+
+          link_id, link_query = link person, node, "SERVED_IN", period: rec.fetch("Periodo", ""), job: rec.fetch("Puesto", "")
+          output.puts link_query if check_and_update(link_id)
+        end
+
+        personal.fetch("Iniciativa Privada", []).each do |rec|
+          node, query = create_node "Company", id: to_hash("Company", rec.fetch("Empresa", "No especificada")), name: rec.fetch("Empresa", "No especificada")
+          output.puts query if check_and_update(node)
+
+          link_id, link_query = link person, node, "WORKED_IN", period: rec.fetch("Periodo", ""), job: rec.fetch("Posicion", "")
+          output.puts link_query if check_and_update(link_id)
+        end
+
+        personal.fetch("Asociaciones a las que Pertenece", []).each do |rec|
+          node, query = create_node "Association", id: to_hash("Association", rec.fetch("Asociacion", "No especificada")), name: rec.fetch("Asociacion", "No especificada")
+          output.puts query if check_and_update(node)
+
+          link_id, link_query = link person, node, "BELONGS_TO", period: rec.fetch("Periodo", ""), job: rec.fetch("Posicion", "")
+          output.puts link_query if check_and_update(link_id)
+        end
+
+        personal.fetch("Actividades Docentes", []).each do |rec|
+          node, query = create_node "Subject", id: to_hash("Subject", rec.fetch("Asignatura")), name: rec.fetch("Asignatura", "")
+          output.puts query if check_and_update(node)
+
+          link_id, link_query = link person, node, "BELONGS_TO", period: rec.fetch("Periodo", ""), job: rec.fetch("Puesto", "")
+          output.puts link_query if check_and_update(link_id)
+        end
+
+        personal.fetch("Escolaridad", []).each do |rec|
+          node, query = create_node "Career", id: to_hash("Career", rec.fetch("Titulo", "No especificada")), name: rec.fetch("Titulo", "No especificada")
+          output.puts query if check_and_update(node)
+
+          link_id, link_query = link person, node, "STUDIED", period: rec.fetch("Periodo", ""), level: rec.fetch("Nivel de estudios", "")
+          output.puts link_query if check_and_update(link_id)
+        end
+
+        personal.fetch("Publicaciones", []).each do |rec|
+          node, query = create_node "Medium", id: to_hash("Medium", rec.fetch("Titulo")), name: rec.fetch("Titulo", ""), medium: rec.fetch("Medio", "")
+          output.puts query if check_and_update(node)
+
+          link_id, link_query = link person, node, "PUBLISHED", date: rec.fetch("Fecha", "")
+          output.puts link_query if check_and_update(link_id)
+        end
+
+        work.fetch("commissions", []).each do |rec|
+          node, query = create_node "GovCommission", id: to_hash("GovCommission", rec.fetch("Nombre", "No especificada")), name: rec.fetch("Nombre", "No especificada"), comission_id: rec.fetch("id", "")
+          output.puts query if check_and_update(node)
+
+          link_id, link_query = link person, node, "BELONGS_TO"
+          output.puts link_query if check_and_update(link_id)
+        end
+
+      rescue Exception => error
+        puts "[-] Error: #{personal.to_json}\n#{error} - #{error.backtrace.join("\n  ")}"
+        exit
+      end
+    end
+  end
+
+  no_commands {
+    def to_hash(label, value)
+      hsh = Digest::SHA2.new(512).hexdigest "#{label}-#{value}"
+      "var#{hsh}"
+    end
+
+    def create_node(label, **props)
+      neo4j_props = props.entries.map { |(key, val)| "#{key}: '#{val}'" }.join(", ")
+      query = "CREATE (#{props[:id]}:#{label} {#{neo4j_props}})"
+
+      [props[:id], query]
+    end
+
+    def link(node_origin, node_dest, relation_name, **props)
+      neo4j_props = props.entries.map { |(key, val)| "#{key}: '#{val}'" }.join(", ")
+      query = "CREATE (#{node_origin})-[:#{relation_name} {#{neo4j_props}}]->(#{node_dest})"
+      id = to_hash("LINK", "#{node_origin}-#{node_dest}-#{relation_name}")
+
+      [id, query]
+    end
+
+    def check_and_update(value)
+      return false if cache.key? value
+
+      cache[value] = true
+    end
+
+    def cache
+      @cache ||= {}
+    end
+  }
 end
 
 WhoIsWhoCLI.start(ARGV)
