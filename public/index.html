@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+
+  <script type="text/javascript">
+    function details(url) {
+      fetch(url).then(resp => resp.json()).then(body => {
+        console.log(body)
+
+        const rows = body.map(dep => `
+  <tr>
+    <td>${dep.self.name} <small>${dep.self.label}</small></td>
+    <td>${dep.rel.type}</td>
+    <td>${dep.other.name} <small>${dep.other.label}</small></td>
+  </tr>
+        `)
+
+        const table = `<table>${rows}</table>`
+
+        $("#details").html(table)
+      })
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <div style="width: 50%">
+      <ul id="list"></ul>
+    </div>
+
+    <div style="width: 50%">
+      <div id="details"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    fetch("/objs/Person/subtype/gobernador").then(resp => resp.json()).then(body => {
+      console.log(body)
+
+      body.forEach(obj => {
+        $("#list").append(`<li><a href="javascript:details('/detail/Person/id/${obj.id}')">${obj.name} <small>${obj.type} - ${obj.subtype}</small></a></li>`)
+      })
+    })
+  </script>
+</body>
+</html>

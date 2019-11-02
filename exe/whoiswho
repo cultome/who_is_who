@@ -27,19 +27,69 @@ class WhoIsWhoCLI < Thor
   option :output, type: :string
   def preload_diputados(file)
     open(options[:output], "w") do |output|
+      parties = %w[Morena PAN PRI PRD].map do |political_party|
+        party, party_query = create_node "PoliticalParty", id: to_hash("PoliticalParty", political_party), name: political_party
+        output.puts party_query if check_and_update(party)
+
+        party
+      end
+
+      interest_groups = ["Cartel JNG", "Sindicato de Trabajadores del Petroleo", "Padres de desaparecidos de Ayotsinapan"].map do |group|
+        group, party_query = create_node "Organization", id: to_hash("Location", group), name: group, type: "crimen_organizado"
+        output.puts party_query
+
+        group
+      end
+
+      country, country_query = create_node "Location", id: to_hash("LocationCountry", "México"), name: "México", type: "country", population: 1234567890
+      output.puts country_query
+
       open(file).each do |line|
         record = JSON.parse line
         personal = record["personal"]
         work = record["work"]
 
-        person, person_query = create_node "Person", id: to_hash("Person", personal["Nombre"]), name: personal["Nombre"]
+        person, person_query = create_node "Person", id: to_hash("Person", personal["Nombre"]), name: personal["Nombre"], type: "servidor_publico", subtype: "diputado_federal"
         output.puts person_query
 
-        state, state_query = create_node "State", id: to_hash("State", personal["Entidad"]), name: personal["Entidad"]
-        output.puts state_query if check_and_update(state)
+        state, state_query = create_node "Location", id: to_hash("Location", personal["Entidad"]), name: personal["Entidad"], type: "state", population: 12345678
+        if check_and_update(state)
+          output.puts state_query
 
-        link_id, link_query = link person, state, "REPRESENTS", election_type: personal.fetch("Tipo de elección", ""), district: personal.fetch("Distrito", "")
+          gov_name =  "Gobernador #{(rand * 10000).floor}"
+          selected_party = parties.sample
+
+          gov, gov_query = create_node "Person", id: to_hash("Person", gov_name), name: gov_name, type: "servidor_publico", subtype: "gobernador"
+          output.puts gov_query
+
+          selected_group = interest_groups.sample
+
+          5.times do
+            inc_name = "#{(rand * 100000).floor}"
+
+            inc, inc_query = create_node "Incident", id: to_hash("Incident", inc_name), incident_id: inc_name, type: "asalto", subtype: "asalto_contra_negocio", modality: "asalto_contra_banco"
+            _, link_query = link selected_group, inc, "RESPONSIBLE_FOR"
+
+            output.puts inc_query
+            output.puts link_query
+          end
+
+          link_id, link_query = link state, selected_party, "GOVERN_BY_PARTY", period: "2018-2024"
+          link_id2, link_query2 = link state, gov, "GOVERN_BY", period: "2018-2024"
+          _, link_query3 = link selected_group, state, "OPERATES_ON"
+          _, link_query4 = link gov, selected_party, "MEMBER_OF"
+
+          output.puts link_query
+          output.puts link_query2
+          output.puts link_query3
+          output.puts link_query4
+        end
+
+        link_id, link_query = link person, state, "ELECTED_IN", election_type: personal.fetch("Tipo de elección", ""), district: personal.fetch("Distrito", "")
+        link_id2, link_query2 = link state, country, "PARENT_LOCATION"
+
         output.puts link_query if check_and_update(link_id)
+        output.puts link_query2 if check_and_update(link_id2)
 
         personal.fetch("Trayectoria Política", []).each do |rec|
           node, query = create_node "Job", id: to_hash("Job", rec.fetch("Cargo", "No especificada")), title: rec.fetch("Cargo", "No especificada")

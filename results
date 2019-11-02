@@ -1,0 +1,292 @@
+=> [32m#<Neo4j::Core::CypherSession::Result:0x000055c3878c3638[0m
+ @columns[32m=[0m[[33m:n[0m],
+ @rows[32m=[0m
+  [[[32m#<Neo4j::Core::Node:0x000055c3878aca00[0m
+     @id[32m=[0m[1;34m12322[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 4993[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar0597034bf22a678b3384c7eee88feca1ecd093e81695ff0e7c1358ab4ea6ecb3cc429f1566d3b4170951720a21d41248b9677572befea76c2726223bfa811dc7[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878ac460[0m
+     @id[32m=[0m[1;34m12378[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 7481[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvarcdfb220dc05d12e06fb27f1d5e6d376833ee7fd531ccc287fc7c3643e11b03a09a4f17e81fa815d9c267ab43409a56eb8e1cd9ca2e1ff28ca68d8bce31208450[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b7f40[0m
+     @id[32m=[0m[1;34m12463[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 7564[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar5ea294474a55d320888d8b984fa6150f4e85321ae548b14b2dc8c808fbafbd17d2828ac51722884229adf1785a74713be3c84d9ebf437ef285f608e620205e5e[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b7b30[0m
+     @id[32m=[0m[1;34m12486[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 9955[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvarf7cfd47b9ad63907d69bd3b13f52749be60137bed038600af3363d6c368b2955d06205fe3a24a50f244757e40bd5ff5a908e0c5df9810dae44046a540fa92f7b[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b76a8[0m
+     @id[32m=[0m[1;34m12510[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 6879[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvarf1be0baae0bbc1121dadf1ba74b0df1e9fb126b9a62d3e6a698c3464c63d79e15169af476b8ea14498cf65730c1956c42bfa5571d9564ad75610f55e9d33d181[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b71d0[0m
+     @id[32m=[0m[1;34m12752[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 9391[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar6885ee6117a4573840f1b4f6cb6e1318ef07c3a981b8f0b9e11d416ad6c3049b14cdc438b3ca758ba8b33573ab16bb0d4fbf26bfe3003eeea41b3226adf21fad[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b6d48[0m
+     @id[32m=[0m[1;34m12836[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 8235[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvarb11b2f6503326da4e8e1cfb695705faaaa12eb3ac21eaeec91d54d645ec5f07a7ff07242b09bf96d5929048240ceee55b805294ee27c8ee622cf24b1e6c97f30[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b6820[0m
+     @id[32m=[0m[1;34m12853[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 4761[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvarfb58a2f9e8003148a01b9242493eff44cab15f7733191de5209e526fc738feecfcc32ff384bce21e9b2d7d7017d161c4c64fe2b9b8b60cd5c65c82a0e894b7e8[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b6320[0m
+     @id[32m=[0m[1;34m12991[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 6550[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar68d9af8545c01ed2c7f759c1f06019b457981d2532ce0679a754ced9b2215d98f345afefbb87c2dcbd6f8f64661e76c615356af3f63691bc92cd7d39433fde23[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b5ec0[0m
+     @id[32m=[0m[1;34m13071[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 4354[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar05f164299e142c77bc36cdbd30b365d6ae38f4fe796be3caf44b4ae2316768c55eb76f1f238c6f5b05598662e2e831c99ff0505c96b74d661f59610807ccb2da[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b59e8[0m
+     @id[32m=[0m[1;34m13097[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 8004[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar7e445ef65c566724a107a7c4560861e9ea5c93e2be2a0dc07f654dfc51aa917d0d5c10bbd4b09fc97aa0f675f6b827e272d84bfb338ce34d3bf6f849be29da36[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b5560[0m
+     @id[32m=[0m[1;34m13274[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 5093[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar84f4f0f4079da851f953d6dfe8bca1cd7298450580a75705b48dc3e3f09b383c9abc2a972eef85425f30116387c1a705163ee7488f4aaede6b1ee155b194ec41[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b5128[0m
+     @id[32m=[0m[1;34m13345[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 9227[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvarae37358eb1e410885c564d1e9bbdaa62f3a2656cab464ecd26eb5de0c0e99755a39e17e1b73c3602b6747e6a2b42ba2bda1a027f334d8dea934f49bd39b0dfd1[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b4c28[0m
+     @id[32m=[0m[1;34m13409[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 6858[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar17a62ece02c4d3ad8d81612fbee979120c201cce292bfb9dc4c1e0e6eea64b972eea64bbe5ed4fe430df8a6ddb1093e7ea2ac6e21d042379f77648c12728a0db[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b47f0[0m
+     @id[32m=[0m[1;34m13603[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 2293[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar40e63a595356b41488cfef278f1b26b13daa08a07d7c9796bed939708f466b3cbc180d7e69ae67928e0ab1178f7f06e0e2476105fabd0bcdcab759e3a8c0ff3d[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b42f0[0m
+     @id[32m=[0m[1;34m13946[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 3104[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvarb7a8490c70edf620f3477707db633681ebdda37f2e08851575e13fbae2b3afe8b00ba815c5c652e0771cda405c73575cf38551ccc25e0b4a30e43d52f196bd06[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878bbdc0[0m
+     @id[32m=[0m[1;34m14040[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 3911[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar92622e546bad406211fc7468998e73d4f64c1ae962417811aefc8a8a0a07aad2f3f71c7f1dd510018b25b2429e2bc13bc8981f1dde6d84cef5c56e403702faf4[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878bb938[0m
+     @id[32m=[0m[1;34m14107[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 8864[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvard32b4a186ebe311b761f81630914847c629b6c5fbb015a155c84975db1ad9c17f0ce96306885f63adaa4356eb41250b2653993f27fbcaff3a2d8627fbec08409[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878bb500[0m
+     @id[32m=[0m[1;34m14145[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 7740[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar5bdad6790aa403476aad7b451c3832bf1f081b3a2236d61d436ff4e2710ec2a122d39f12cb6fad7d61841d5d713bd8cb52c4e07ac321c14693bcc91e9a837f01[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878bb000[0m
+     @id[32m=[0m[1;34m14213[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 3289[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar37cfa6176cc7b967f2f0a46c068d12b114cdb4a91042d0276660622110eb9f644bd6b22902b7688dbfe7d52fde6450de4bffe3618bb7bb9f91b3a5ef7caf10ab[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878babc8[0m
+     @id[32m=[0m[1;34m14306[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 8635[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvarc7c22a8e466839e3551c471ce47260bc26113a0f069993b5532e8d8e135b57238c9900dc976526ca848d4eed33e6a72b640ba64c60f0ed9af6f9bd7911d531ad[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878ba6c8[0m
+     @id[32m=[0m[1;34m14395[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 4389[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar78390a786957f5558c871291897e8d32bba40bb9d0278bdd58f3e730c9ecdeb2402f9facdd745084729b1b4d548adfdaec825974da58764cea2462e09638c0cc[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878ba240[0m
+     @id[32m=[0m[1;34m14454[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 7054[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvarf1796407a80afa02d6d4dd1b2224c09929e0be3e7870f0bc29b9b6b7bc07aa9d2e23d0d3b84e031e88080e6e6d77325cc456c5e5686f7f902ddbed4ed4f26173[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b9db8[0m
+     @id[32m=[0m[1;34m14506[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 4349[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar30ec2eb59030f22347eb58c0a6dd36d3e2e85a9950375202b37c0bba7ebb1a6461d6fd005de1d58241cf189d00f043ade1fca71a33fe1ac0b2ff62fb02231f13[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b9840[0m
+     @id[32m=[0m[1;34m14555[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 8106[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar1523ee20535017155ede551c820ac15ba197fc3d652827d23944379d2eb6e9248ab08ed212d8b9a74c44abab4cedfae08d0d96af74d0ef82d2508be9206da9f5[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b93b8[0m
+     @id[32m=[0m[1;34m14611[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 6986[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvard8c740867cb170032c4e6fcdbaee1ff949ee5a27a9bef222f4fce643fd6466af56e92f190b43b6adf3e774bdcf4a7ccab197f52301d09767ebb4c08cd2142553[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b8f08[0m
+     @id[32m=[0m[1;34m14679[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 4351[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvarc5f9cdab8c48e74c0c9fcea431da622d2ee6bab7d08f2aa77a0bde7673b4e6f8a779811753900d0544eed92f01db039e6dd4a61fac3416a095e43e80de67714d[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b8a08[0m
+     @id[32m=[0m[1;34m14756[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 9462[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar59bc331e13cece12767db6c4b4e52db63e6559c2491ceef4b158ea94f503352e3a11c98e332fb0a7573ed9a6808f70f6261faa9e5b0c039174b594595a9321d3[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b85d0[0m
+     @id[32m=[0m[1;34m14830[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 7682[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar5662d1b7f4be0ab498d2b570f215dd95a996a7ab8b7aa7295a7d9af220eb4cc055cc702b183b36e8d0670bfcf787d982ff0058f026dac81a2724b0941efcfacd[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878b8058[0m
+     @id[32m=[0m[1;34m14840[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 294[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar945f5508d2d8de346da9c1bfefbab31144fae90f4e758065f4593c338a93ed7f9fae65eb95ed5f13a5a0fc8cdf55463587c053163d7c371e2114f326137e7f50[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878c3bd8[0m
+     @id[32m=[0m[1;34m14993[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 7588[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvar8cad67f9a928963e77ee57556b610cd6fe6ad2e91e6f9bb9aff4532373e18f9133e26ba9979397ba1963012df2ae58f0edb0387ba82418eb009d75591c157bcd[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m],
+   [[32m#<Neo4j::Core::Node:0x000055c3878c36d8[0m
+     @id[32m=[0m[1;34m15026[0m,
+     @labels[32m=[0m[[33m:Person[0m],
+     @properties[32m=[0m
+      {[33m:subtype[0m=>[31m[1;31m"[0m[31mgobernador[1;31m"[0m[31m[0m,
+       [33m:name[0m=>[31m[1;31m"[0m[31mGobernador 328[1;31m"[0m[31m[0m,
+       [33m:id[0m=>
+        [31m[1;31m"[0m[31mvara40ce29d306eb17bbb8ee7de63e8af1f3573f74e0353a069360333aef103f9f1e7070088d545298371a4008fda4d6fc5be13e1647dbbd6327a77064bff6f015b[1;31m"[0m[31m[0m,
+       [33m:type[0m=>[31m[1;31m"[0m[31mservidor_publico[1;31m"[0m[31m[0m}[32m>[0m]],
+ @struct_class[32m=[0m[32m#<Class:0x000055c3878c3548>[0m[32m>[0m
